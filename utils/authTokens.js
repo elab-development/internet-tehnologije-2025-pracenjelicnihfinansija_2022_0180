@@ -20,5 +20,5 @@ export const setAuthCookie = (res, token) => {
 };
 
 export const clearAuthCookie = (res) => {
-  res.clearCookie(COOKIE_NAME, { path: '/' });
+  res.clearCookie(COOKIE_NAME, { path: '/' }); //laragit status
 };
