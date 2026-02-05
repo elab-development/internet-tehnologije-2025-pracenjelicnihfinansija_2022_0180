@@ -5,12 +5,11 @@ const COOKIE_NAME = process.env.COOKIE_NAME;
 
 export const requireAuth = async (req, res, next) => {
   try {
-    const token = req.cookies?.[COOKIE_NAME];
-     //const token =
-      //req.cookies?.[COOKIE_NAME] ||
-      //(req.headers.authorization?.startsWith('Bearer ')
-       // ? req.headers.authorization.split(' ')[1]
-       // : null);
+     const token =
+      req.cookies?.[COOKIE_NAME] ||
+      (req.headers.authorization?.startsWith('Bearer ')
+        ? req.headers.authorization.split(' ')[1]
+        : null);
 
     if (!token) return res.status(401).json({ message: 'Not authenticated' });
 
